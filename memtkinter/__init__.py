@@ -14,6 +14,8 @@ class Tk(tk.Tk):
                  useTk=1, sync=0, use=None)
 		self.settings = Settings(keytype=keytype, filepath=filepath, name=name)
 		self.settings.geometry = self.geometry
+		self.settings.wm_state = self.wm_state
+		self.settings.overrideredirect = self.overrideredirect
 		
 	def destroy(self):
 		self.settings.save()
@@ -24,6 +26,8 @@ class Toplevel(tk.Toplevel):
 		tk.Toplevel.__init__(self, master, cnf, **kw)
 		self.settings = Settings(name=name, parent=master.settings)
 		self.settings.geometry = self.geometry
+		self.settings.wm_state = self.wm_state
+		self.settings.overrideredirect = self.overrideredirect
 		
 	def destroy(self):
 		self.settings.save()
