@@ -26,6 +26,7 @@ class CollapsibleFrame():
 					 'grid_rowconfigure',
 					 'winfo_reqwidth',
 					 'winfo_reqheight',
+					 'configure',
 					 'settings']: # only remove these once all widgets are set up
 			self.outer_attr.discard(attr)
 		self.config(**kw)
