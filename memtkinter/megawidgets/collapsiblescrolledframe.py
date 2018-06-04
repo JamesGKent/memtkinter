@@ -2,6 +2,8 @@ import memtkinter as tk
 import memtkinter.ttk as ttk
 from memtkinter.scrolledframe import ScrolledFrame
 
+__all__ = ['CollapsibleScrolledFrame']
+
 class CollapsibleScrolledFrame():
 	'''
 	Collapsible Frame widget

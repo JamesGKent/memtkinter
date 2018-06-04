@@ -3,6 +3,12 @@ from memtkinter.scrolledtext import ScrolledText
 from memtkinter import messagebox
 import sys
 
+__all__ = [
+	'DummyPipe',
+	'LogText',
+	'LiveLogger',
+]
+
 class DummyPipe():
 	'''
 	dummy class to capture output

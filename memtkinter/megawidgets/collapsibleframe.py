@@ -1,6 +1,8 @@
 import memtkinter as tk
 import memtkinter.ttk as ttk
 
+__all__ = ['CollapsibleFrame']
+
 class CollapsibleFrame():
 	'''
 	Collapsible Frame widget
