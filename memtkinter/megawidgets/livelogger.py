@@ -47,6 +47,11 @@ class LogText(ScrolledText):
 		else:
 			self.at_end = False
 		ScrolledText.yview(self, *args)
+		
+	def insert(self, index, chars, *args):
+		ScrolledText.insert(index, chars, *args)
+		if self.at_end:
+			self.see(tk.END)
 
 class LiveLogger(tk.Toplevel):
 	'''
@@ -95,8 +100,6 @@ class LiveLogger(tk.Toplevel):
 			self.streams[stream].write(buf)
 
 		self.logwindow.insert(tk.END, buf, stream)
-		if self.logwindow.at_end:
-			self.logwindow.see(tk.END)
 		if not self.shown:
 			if stream == "stderr":
 				for entry in self.error_types:
