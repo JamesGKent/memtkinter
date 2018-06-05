@@ -9,6 +9,7 @@ class SettingsViewer(tk.Toplevel):
 		self.settings_root = master.settings
 		headings = ['Name', 'Type', 'Value']
 		self.tree = ttk.Treeview(self, columns=headings)
+		self.tree.heading('#0', text='Node')
 		for heading in headings:
 			self.tree.heading(headings.index(heading), text=heading)
 		self.tree.pack(fill=tk.BOTH, expand=True)
