@@ -79,14 +79,11 @@ class PanedWindow(tk.PanedWindow):
 
 class Checkbutton(tk.Checkbutton):
 	def __init__(self, master, name=None, cnf={}, **kw):
-		self._internalvar = tk.StringVar()
+		self._internalvar = tk.IntVar()
 		self._internalvar.trace('w', self.__intvartrace)
 		self._variable = kw.pop('variable', None)
 		if self._variable:
 			self._variable.trace('w', self.__vartrace)
-		self._textvariable = kw.pop('textvariable', None)
-		if self._textvariable:
-			self._textvariable.trace('w', self.__textvartrace)
 		kw['variable'] = self._internalvar
 		tk.Checkbutton.__init__(self, master, cnf, **kw)
 		if name:
@@ -100,9 +97,6 @@ class Checkbutton(tk.Checkbutton):
 
 	def __vartrace(self, *args):
 		self._internalvar.set(self._variable.get())
-		
-	def __textvartrace(self, *args):
-		self._internalvar.set(self._textvariable.get())
 		
 	def __intvartrace(self, *args):
 		if self._variable:
