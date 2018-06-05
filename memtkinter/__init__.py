@@ -30,7 +30,7 @@ class Toplevel(tk.Toplevel):
 		self.settings.overrideredirect = self.overrideredirect
 		
 	def destroy(self):
-		self.master.settings.save()
+		self.settings.save()
 		tk.Toplevel.destroy(self)
 		
 class Frame(tk.Frame):
