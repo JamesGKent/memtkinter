@@ -16,9 +16,7 @@ class ColourButton(tk.Button):
 		provide a name to save between script runs.
 		a command callback can be provided.
 		'''
-		self._command = None
-		if 'command' in kw:
-			self._command = kw.pop('command')
+		self._command = kw.pop('command', None)
 		kw['command'] = self.choosecolour
 		tk.Button.__init__(self, master, cnf, **kw)
 		if name:
@@ -60,7 +58,7 @@ class ColourButton(tk.Button):
 		'''
 		set colour, can be colour name, hex code or tuple
 		'''
-		self.configure(bg=colour, fg=self.complementary(colour))
+		self.configure(bg=value, fg=self.complementary(value))
 			
 class ColourTtkButton(ttk.Button):
 	'''
