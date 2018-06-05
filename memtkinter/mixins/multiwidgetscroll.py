@@ -87,14 +87,14 @@ class MultiColumnListboxScrollbar(MultiWidgetScrollbar):
 	def delete(self, first, last=None):
 		"""Delete items from FIRST to LAST (included)."""
 		for l in self.widgets:
-			tk.Listbox.delete(first, last)
+			tk.Listbox.delete(l, first, last)
 		
 	def get(self, first, last=None):
 		"""Get list of items from FIRST to LAST (included)."""
 		data = []
 		for l in self.widgets:
-			data.append(tk.Listbox.get(l, first, last))
-		return zip(*data)
+			data.append([tk.Listbox.get(l, first, last)])
+		return list(zip(*data))
 		
 	def index(self, index):
 		"""Return index of item identified with INDEX."""
