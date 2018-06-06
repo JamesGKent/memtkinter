@@ -30,7 +30,7 @@ class Toplevel(tk.Toplevel):
 		self.settings.overrideredirect = self.overrideredirect
 		
 	def destroy(self):
-		self.master.settings.save()
+#		self.master.settings.save()
 		tk.Toplevel.destroy(self)
 		
 class Frame(tk.Frame):
@@ -101,8 +101,6 @@ class Checkbutton(tk.Checkbutton):
 	def __intvartrace(self, *args):
 		if self._variable:
 			self._variable.set(self._internalvar.get())
-		if self._textvariable:
-			self._textvariable.set(self._internalvar.get())
 			
 	def get(self):
 		return self._internalvar.get()
