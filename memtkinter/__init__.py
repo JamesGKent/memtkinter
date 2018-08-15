@@ -29,9 +29,9 @@ class Toplevel(tk.Toplevel):
 		self.settings.wm_state = self.wm_state
 		self.settings.overrideredirect = self.overrideredirect
 		
-	def destroy(self):
+#	def destroy(self):
 #		self.master.settings.save()
-		tk.Toplevel.destroy(self)
+#		tk.Toplevel.destroy(self)
 		
 class Frame(tk.Frame):
 	def __init__(self, master, name, cnf={}, **kw):
@@ -116,8 +116,11 @@ class Entry(tk.Entry):
 		
 	def __get_set(self, value=None):
 		if value:
+			s = self.cget('state')
+			self.configure(state='normal')
 			self.delete(0, tk.END)
 			self.insert(tk.END, value)
+			self.configure(state=s)
 		else:
 			return self.get()
 
