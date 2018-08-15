@@ -33,9 +33,10 @@ class ColourButton(tk.Button):
 		invoked when button pushed to prompt user to select a colour
 		'''
 		colour = colorchooser.askcolor(initialcolor=self['bg'])[1]
-		self.configure(bg=colour, fg=self.complementary(colour))
-		if self._command:
-			self._command()
+		if colour:
+			self.configure(bg=colour, fg=self.complementary(colour))
+			if self._command:
+				self._command()
 			
 	def complementary(self, colour):
 		'''

@@ -55,9 +55,10 @@ class LogText(ScrolledText):
 		ScrolledText.yview(self, *args)
 		
 	def insert(self, index, chars, *args):
-		ScrolledText.insert(index, chars, *args)
+		ScrolledText.insert(self, index, chars, *args)
 		if self.at_end:
 			self.see(tk.END)
+			self.update_idletasks()
 
 class LiveLogger(tk.Toplevel):
 	'''

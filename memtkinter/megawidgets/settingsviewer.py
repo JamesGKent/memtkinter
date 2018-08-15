@@ -6,6 +6,7 @@ __all__ = ['SettingsViewer']
 class SettingsViewer(tk.Toplevel):
 	def __init__(self, master, name='settingsviewer', cnf={}, **kw):
 		tk.Toplevel.__init__(self, master, name, cnf={}, **kw)
+		self.protocol("WM_DELETE_WINDOW", self.withdraw)
 		self.settings_root = master.settings
 		headings = ['Name', 'Type', 'Value']
 		self.tree = ttk.Treeview(self, columns=headings)
