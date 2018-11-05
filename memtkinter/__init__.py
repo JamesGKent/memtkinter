@@ -123,6 +123,11 @@ class Entry(tk.Entry):
 			self.configure(state=s)
 		else:
 			return self.get()
+			
+	def destroy(self):
+		if hasattr(self, 'settings'):
+			self.settings.delete()
+		tk.Entry.destroy(self)
 
 class Radiobutton(tk.Radiobutton):
 	def __init__(self, master, name, cnf={}, **kw):
@@ -139,6 +144,11 @@ class Radiobutton(tk.Radiobutton):
 			self._variable.set(value)
 		else:
 			return self._variable.get()
+			
+	def destroy(self):
+		if hasattr(self, 'settings'):
+			self.settings.delete()
+		tk.Radiobutton.destroy(self)
 
 class Scale(tk.Scale):
 	def __init__(self, master, name=None, cnf={}, **kw):
@@ -151,6 +161,11 @@ class Scale(tk.Scale):
 			self.set(value)
 		else:
 			return self.get()
+	
+	def destroy(self):
+		if hasattr(self, 'settings'):
+			self.settings.delete()
+		tk.Scale.destroy(self)
 			
 class Text(tk.Text):
 	def __init__(self, master, name=None, cnf={}, **kw):
@@ -167,6 +182,11 @@ class Text(tk.Text):
 			if value.endswith('\n'):
 				value = value[:-1]
 			return value
+			
+	def destroy(self):
+		if hasattr(self, 'settings'):
+			self.settings.delete()
+		tk.Text.destroy(self)
 			
 class Spinbox(tk.Spinbox):
 	def __init__(self, master, name=None, cnf={}, **kw):
@@ -206,3 +226,8 @@ class Spinbox(tk.Spinbox):
 		
 	def set(self, value):
 		self._internalvar.set(value)
+		
+	def destroy(self):
+		if hasattr(self, 'settings'):
+			self.settings.delete()
+		tk.Spinbox.destroy(self)
