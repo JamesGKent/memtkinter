@@ -1,0 +1,295 @@
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Python: module TkinterDnD</title>
+	</head>
+	<body bgcolor="#f0f0f8">
+
+		<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+			<tr bgcolor="#7799ee">
+				<td valign=bottom>
+					<br/>
+					<font color="#ffffff" face="helvetica, arial">
+						<br/>
+						<big>
+							<big>
+								<strong>TkinterDnD</strong>
+							</big>
+						</big>
+					</font>
+				</td>
+				<td align=right valign=bottom
+>
+					<font color="#ffffff" face="helvetica, arial">
+						<a href=".">index</a>
+						<br/>
+						<a href="file:TkinterDnD.py">TkinterDnD.py</a>
+					</font>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<tt>Python wrapper for the tkdnd tk extension.<br/>
+The tkdnd extension provides an interface to native, platform specific<br/>
+drag and drop mechanisms. Under Unix the drag &amp; drop protocol in use is<br/>
+the XDND protocol version 5 (also used by the Qt toolkit, and the KDE and<br/>
+GNOME desktops). Under Windows, the OLE2 drag &amp; drop interfaces are used.<br/>
+Under Macintosh, the Cocoa drag and drop interfaces are used.<br/>
+				<br/>
+Once the TkinterDnD2 package is installed, it is safe to do:<br/>
+				<br/>
+from TkinterDnD2 import *<br/>
+				<br/>
+This will patch any previously imported tkinter or tix libraries to add drag and drop methods defined in DnDWrapper.<br/>
+As such it must be imported after tkinter or tix<br/>
+				<br/>
+This will also add the following constants to the global namespace:<br/>
+PRIVATE, NONE, ASK, COPY, MOVE, LINK, REFUSE_DROP,<br/>
+DND_TEXT, DND_FILES, DND_ALL, CF_UNICODETEXT, CF_TEXT, CF_HDROP,<br/>
+FileGroupDescriptor, FileGroupDescriptorW<br/>
+				<br/>
+			</tt>
+		</p>
+
+		<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+			<tr bgcolor="#ee77aa">
+				<td colspan=3 valign=bottom>
+					<br/>
+					<font color="#ffffff" face="helvetica, arial">
+						<big>
+							<strong>Classes</strong>
+						</big>
+					</font>
+				</td>
+			</tr>
+
+			<tr>
+				<td bgcolor="#ee77aa">
+					<tt>      </tt>
+				</td>
+				<td> </td>
+				<td width="100%">
+					<dl>
+
+						<dt>
+							<font face="helvetica, arial">
+								<a href="TkinterDnD.html#DnDEvent">DnDEvent</a>
+							</font>
+						</dt>
+						<dt>
+							<font face="helvetica, arial">
+								<a href="TkinterDnD.html#DnDWrapper">DnDWrapper</a>
+							</font>
+						</dt>
+					</dl>
+					<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+						<tr bgcolor="#ffc8d8">
+							<td colspan=3 valign=bottom>
+								<br/>
+								<font color="#000000" face="helvetica, arial">
+									<a name="DnDEvent">class <strong>DnDEvent</strong>
+									</a>
+								</font>
+							</td>
+						</tr>
+
+						<tr bgcolor="#ffc8d8">
+							<td rowspan=2>
+								<tt>   </tt>
+							</td>
+							<td colspan=2>
+								<tt>Internal class.<br/>
+Container for the properties of a drag-and-drop event, similar to a<br/>
+normal tkinter.Event.<br/>
+An instance of the <a href="#DnDEvent">DnDEvent</a> class has the following attributes:<br/>
+    action (string)<br/>
+    actions (tuple)<br/>
+    button (int)<br/>
+    code (string)<br/>
+    codes (tuple)<br/>
+    commonsourcetypes (tuple)<br/>
+    commontargettypes (tuple)<br/>
+    data (string)<br/>
+    name (string)<br/>
+    types (tuple)<br/>
+    modifiers (tuple)<br/>
+    supportedsourcetypes (tuple)<br/>
+    sourcetypes (tuple)<br/>
+    type (string)<br/>
+    supportedtargettypes (tuple)<br/>
+    widget (widget instance)<br/>
+    x_root (int)<br/>
+    y_root (int)<br/>
+Depending on the type of DnD event however, not all attributes may be set.<br/>
+								</tt>
+							</td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td width="100%"/>
+						</tr>
+					</table>
+					<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+						<tr bgcolor="#ffc8d8">
+							<td colspan=3 valign=bottom>
+								<br/>
+								<font color="#000000" face="helvetica, arial">
+									<a name="DnDWrapper">class <strong>DnDWrapper</strong>
+									</a>
+								</font>
+							</td>
+						</tr>
+						<tr bgcolor="#ffc8d8">
+							<td rowspan=2>
+								<tt>   </tt>
+							</td>
+							<td colspan=2>
+								<tt>Internal class.<br/>
+								</tt>
+							</td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td width="100%">Methods defined here:<br/>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-dnd_bind">
+											<strong>dnd_bind</strong>
+										</a>(self, sequence<font color="#909090">=None</font>, func<font color="#909090">=None</font>, add<font color="#909090">=None</font>)</dt>
+									<dd>
+										<tt>Bind to this widget at drag and drop event SEQUENCE a call<br/>
+to function FUNC.<br/>
+SEQUENCE may be one of the following:<br/>
+&lt;&lt;DropEnter&gt;&gt;, &lt;&lt;DropPosition&gt;&gt;, &lt;&lt;DropLeave&gt;&gt;, &lt;&lt;Drop&gt;&gt;,<br/>
+&lt;&lt;Drop:type&gt;&gt;, &lt;&lt;DragInitCmd&gt;&gt;, &lt;&lt;DragEndCmd&gt;&gt; .<br/>
+The callbacks for the &lt;Drop*&gt;&gt; events, with the exception of<br/>
+&lt;&lt;DropLeave&gt;&gt;, should always return an action (i.e. one of COPY,<br/>
+MOVE, LINK, ASK or PRIVATE).<br/>
+The callback for the &lt;&lt;DragInitCmd&gt;&gt; event must return a tuple<br/>
+containing three elements: the drop action(s) supported by the<br/>
+drag source, the format type(s) that the data can be dropped as and<br/>
+finally the data that shall be dropped. Each of these three elements<br/>
+may be a tuple of strings or a single string.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-drag_source_register">
+											<strong>drag_source_register</strong>
+										</a>(self, button<font color="#909090">=None</font>, *dndtypes)</dt>
+									<dd>
+										<tt>This command will register SELF as a drag source.<br/>
+A drag source is a widget than can start a drag action. This command<br/>
+can be executed multiple times on a widget.<br/>
+When SELF is registered as a drag source, optional DNDTYPES can be<br/>
+provided. These DNDTYPES will be provided during a drag action, and<br/>
+it can contain platform independent or platform specific types.<br/>
+Platform independent are DND_Text for dropping text portions and<br/>
+DND_Files for dropping a list of files (which can contain one or<br/>
+multiple files) on SELF. However, these types are<br/>
+indicative/informative. SELF can initiate a drag action with even a<br/>
+different type list. Finally, button is the mouse button that will be<br/>
+used for starting the drag action. It can have any of the values 1<br/>
+(left mouse button), 2 (middle mouse button - wheel) and 3<br/>
+(right mouse button). If button is not specified, it defaults to 1.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-drag_source_unregister">
+											<strong>drag_source_unregister</strong>
+										</a>(self)</dt>
+									<dd>
+										<tt>This command will stop SELF from being a drag source. Thus, window<br/>
+will stop receiving events related to drag operations. It is an error<br/>
+to use this command for a window that has not been registered as a<br/>
+drag source with <a href="#DnDWrapper-drag_source_register">drag_source_register</a>().</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-drop_target_register">
+											<strong>drop_target_register</strong>
+										</a>(self, *dndtypes)</dt>
+									<dd>
+										<tt>This command will register SELF as a drop target. A drop target is<br/>
+a widget than can accept a drop action. This command can be executed<br/>
+multiple times on a widget. When SELF is registered as a drop target,<br/>
+optional DNDTYPES can be provided. These types list can contain one or<br/>
+more types that SELF will accept during a drop action, and it can<br/>
+contain platform independent or platform specific types. Platform<br/>
+independent are DND_Text for dropping text portions and DND_Files for<br/>
+dropping a list of files (which can contain one or multiple files) on<br/>
+SELF.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-drop_target_unregister">
+											<strong>drop_target_unregister</strong>
+										</a>(self)</dt>
+									<dd>
+										<tt>This command will stop SELF from being a drop target. Thus, SELF<br/>
+will stop receiving events related to drop operations. It is an error<br/>
+to use this command for a window that has not been registered as a<br/>
+drop target with <a href="#DnDWrapper-drop_target_register">drop_target_register</a>().</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-get_dropfile_tempdir">
+											<strong>get_dropfile_tempdir</strong>
+										</a>(self)</dt>
+									<dd>
+										<tt>This command will return the temporary directory used by TkDND for<br/>
+storing temporary files. When the package is loaded, this temporary<br/>
+directory will be initialised to a proper directory according to the<br/>
+operating system. This default initial value can be changed to be the<br/>
+value of the following environmental variables:<br/>
+TKDND_TEMP_DIR, TEMP, TMP.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-platform_independent_types">
+											<strong>platform_independent_types</strong>
+										</a>(self, *dndtypes)</dt>
+									<dd>
+										<tt>This command will accept a list of types that can contain platform<br/>
+independnent or platform specific types. A new list will be returned,<br/>
+where each platform specific type in DNDTYPES will be substituted by<br/>
+one or more platform independent types. Thus, the returned list may<br/>
+have more elements than DNDTYPES.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-platform_specific_types">
+											<strong>platform_specific_types</strong>
+										</a>(self, *dndtypes)</dt>
+									<dd>
+										<tt>This command will accept a list of types that can contain platform<br/>
+independnent or platform specific types. A new list will be returned,<br/>
+where each platform independent type in DNDTYPES will be substituted<br/>
+by one or more platform specific types. Thus, the returned list may<br/>
+have more elements than DNDTYPES.</tt>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<a name="DnDWrapper-set_dropfile_tempdir">
+											<strong>set_dropfile_tempdir</strong>
+										</a>(self, tempdir)</dt>
+									<dd>
+										<tt>This command will change the temporary directory used by TkDND for<br/>
+storing temporary files to TEMPDIR.</tt>
+									</dd>
+								</dl>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
