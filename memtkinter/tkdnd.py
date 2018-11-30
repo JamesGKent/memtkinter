@@ -39,6 +39,8 @@ __all__ = [
 	'CF_HDROP',
 	'FileGroupDescriptor',
 	'FileGroupDescriptorW',
+	'DnDEvent',
+	'DnDWrapper',
 	]
 
 # dnd actions
