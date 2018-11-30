@@ -92,9 +92,9 @@ class Listbox:
 			of_size = (
 				self.outer_frame.winfo_width() - padding,
 				self.outer_frame.winfo_height() - padding)
-			print('of_size: %s' % str(of_size))
+#			print('of_size: %s' % str(of_size))
 			l_size = (self.listbox.winfo_width(), self.listbox.winfo_height())
-			print('l_size: %s' % str(l_size))
+#			print('l_size: %s' % str(l_size))
 			vsbw = self.vsb.winfo_reqwidth()
 			hsbh = self.hsb.winfo_reqheight()
 

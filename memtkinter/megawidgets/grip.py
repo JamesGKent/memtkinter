@@ -1,17 +1,19 @@
-class Drag:
+__all__ = ['Grip']
+
+class Grip:
 	''' Makes a window dragable. '''
 	def __init__ (self, parent, disable=None, releasecmd=None) :
-		self.parent        = parent
-		self.root       = parent
-		while True:
-			try:
-				self.root.geometry()
-				break
-			except AttributeError:
-				self.root = self.root.nametowidget(self.root.winfo_parent())
+		self.parent = parent
+		self.root = parent.winfo_toplevel()
+#		while True:
+#			try:
+#				self.root.geometry()
+#				break
+#			except AttributeError:
+#				self.root = self.root.nametowidget(self.root.winfo_parent())
 				
-		self.disable   = disable
-		if type(disable) == "str":
+		self.disable = disable
+		if type(disable) == 'str':
 			self.disable = disable.lower()
 			
 		self.releaseCMD = releasecmd

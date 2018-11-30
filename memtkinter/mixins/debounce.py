@@ -90,6 +90,8 @@ class Debounce():
 			bind_method(self, *args, sequence=event, func=function)
 			
 	def _debounce_init(self):
+		if hasattr(self, '__debounce_initialised'):
+			return
 		# get first base class that isn't Debounce and save ref
 		# this will be used for underlying bind methods
 		if not hasattr(self, '_base'):
@@ -102,7 +104,7 @@ class Debounce():
 			self._binding_dict = {}
 			
 		# for class bindings
-		try: # check if this class has alread had class bindings
+		try: # check if this class has already had class bindings
 			cd = self._bind_class_dict[self.__class__.__name__]
 		except KeyError: # create dict to store if not
 			self._bind_class_dict[self.__class__.__name__] = {}
@@ -114,6 +116,7 @@ class Debounce():
 		bindtags.insert(index, self.__class__.__name__)
 		# save the bind tags back to the widget
 		self.bindtags(tuple(bindtags))
+		self.__debounce_initialised = True
 			
 	def _get_evdict(self, event):
 		'''

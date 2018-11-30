@@ -86,5 +86,5 @@ if __name__ == '__main__':
 	cf = CollapsibleFrame(root, 'cf', text="Test Frame")
 	cf.pack()
 	for i in range(0, 10):
-		tk.Label(cf, text='meow').grid(column=1, row=i, sticky='nesw')
+		tk.Label(cf, text='Test %i' % i).grid(column=1, row=i, sticky='nesw')
 	root.mainloop()

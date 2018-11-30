@@ -48,7 +48,7 @@ class MultiWidgetScrollbar(ttk.Scrollbar):
 class MultiColumnListboxScrollbar(MultiWidgetScrollbar):
 	'''
 	Speciallised scrollbar for handling multiple listboxes
-	using the add_listbox method to keep track of attatched listboxes
+	using the add_listbox method to keep track of attached listboxes
 	configures the listboxes as required to enable uniform selection
 	i.e. selected items are highlighted on all listboxes
 	also overrides various methods of listbox to handle the multiple
