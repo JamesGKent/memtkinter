@@ -5,12 +5,6 @@ class Grip:
 	def __init__ (self, parent, disable=None, releasecmd=None) :
 		self.parent = parent
 		self.root = parent.winfo_toplevel()
-#		while True:
-#			try:
-#				self.root.geometry()
-#				break
-#			except AttributeError:
-#				self.root = self.root.nametowidget(self.root.winfo_parent())
 				
 		self.disable = disable
 		if type(disable) == 'str':
